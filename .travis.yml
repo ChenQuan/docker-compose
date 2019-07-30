@@ -10,4 +10,4 @@ services:
 - docker
 sudo: required
 script:
-- cd hzero-server/ && docker-compose run -d && docker-compose down
+- cd hzero-server/ && docker-compose up -d && docker-compose down

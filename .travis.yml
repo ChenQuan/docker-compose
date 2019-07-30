@@ -1,0 +1,14 @@
+language: bash
+
+os:
+- linux
+- osx
+- windows
+
+services:
+- docker
+- docker-compose
+sudo: required
+
+scrip:
+- docker-compose hzero-server/

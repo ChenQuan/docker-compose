@@ -1,0 +1,57 @@
+version: "3.3"
+services:
+  mysql:
+    container_name: hzero-mysql
+    hostname: db.hzero.org
+    image: registry.cn-hangzhou.aliyuncs.com/choerodon-tools/mysql:5.7.17
+    ports:
+    - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+    - /hzero/data-server/mysql/mysql_data:/var/lib/mysql
+    - /hzero/data-server/mysql/mysql_db.cnf:/etc/mysql/conf.d/mysql_db.cnf
+    expose:
+    - "3306"
+    networks:
+    - "c7nNetwork"
+  redis:
+    container_name: hzero-redis
+    hostname: redis.hzero.org
+    image: redis
+    volumes:
+    - /hzero/data-server/redis/data:/data
+    ports:
+    - "6379:6379"
+    expose:
+    - "6379"
+    networks:
+    - "c7nNetwork"
+  hzero:
+    container_name: hzero-env 
+    hostname: dev.hzero.org
+    image: chenquan97/hzero-server
+    ports:
+    - "8080:8080"
+    - "80:80"
+    expose:
+    - "8080"
+    - "80"
+    networks:
+    - "c7nNetwork"
+#  minio:
+#    container_name: hzero-minio
+#    hostname: minio.hzero.org
+#    image: minio/minio:RELEASE.2018-05-25T19-49-13Z
+#    ports:
+#    - "9000:9000"
+#    expose:
+#    - "9000"
+#    networks:
+#    - "c7nNetwork"
+#    volumes:
+#    - /hzero/data-server/minio/data:/data
+#    - /hzero/data-server/minio/config:/root/.minio
+networks:
+  c7nNetwork:
+    driver: bridge

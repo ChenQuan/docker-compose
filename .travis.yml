@@ -9,8 +9,5 @@ os:
 services:
 - docker
 sudo: required
-
-before_install:
-- pip install -r requirements.txt 
-scrip:
+script:
 - cd hzero-server/ && docker-compose run -d && docker-compose down

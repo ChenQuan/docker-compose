@@ -10,6 +10,8 @@ services:
 - docker
 sudo: required
 
+before_install:
+- pip install -U docker-compose
 scrip:
 - pip install -U docker-compose
-- docker-compose hzero-server/
+- cd hzero-server/ && docker-compose run -d && docker-compose down

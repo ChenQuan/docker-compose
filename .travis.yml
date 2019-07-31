@@ -11,5 +11,6 @@ services:
 sudo: required
 script:
 - cd hzero-server/ && docker-compose -f docker-compose.yaml config
+- docker-compose -f docker-compose.yaml down
 - docker-compose -f docker-compose.yaml up -d --force-recreate 
 - docker-compose -f docker-compose.yaml down

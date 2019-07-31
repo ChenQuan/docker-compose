@@ -10,4 +10,6 @@ services:
 - docker
 sudo: required
 script:
-- cd hzero-server/ && docker-compose up -f docker-compose.yaml --force-recreate --exit-code-from hzero-ci
+- cd hzero-server/ && docker-compose -f docker-compose.yaml config
+- docker-compose -f docker-compose.yaml up -d --force-recreate 
+- docker-compose -f docker-compose.yaml down

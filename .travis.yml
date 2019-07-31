@@ -1,18 +1,19 @@
 language: 
-- python
-- bash
+ - python
+ - bash
+python:
+ - "3.6"
+ - "2.7"
 os:
-- linux
-- osx
-- windows
-
+ - linux
+ - osx
 services:
-- docker
+ - docker
 before_install:
-- sudo service mysql-5.6 stop || sudo service mysql stop
+ - sudo service mysql-5.6 stop || sudo service mysql stop
 sudo: required
 script:
-- cd hzero-server/ && docker-compose -f docker-compose.yaml config 
-- docker-compose -f docker-compose.yaml down
-- docker-compose -f docker-compose.yaml up -d --force-recreate 
-- docker-compose -f docker-compose.yaml down
+ - cd hzero-server/ && docker-compose -f docker-compose.yaml config 
+ - docker-compose -f docker-compose.yaml down
+ - docker-compose -f docker-compose.yaml up -d --force-recreate 
+ - docker-compose -f docker-compose.yaml down

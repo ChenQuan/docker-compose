@@ -34,10 +34,10 @@ services:
     privileged: true
     command: ['/usr/sbin/init']
     ports:
-    - "8080:8080"
+    - "8000-9000:8000-9000"
     - "80:80"
     expose:
-    - "8080"
+    - "8000-9000"
     - "80"
     networks:
     - "net"

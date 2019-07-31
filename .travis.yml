@@ -10,4 +10,4 @@ services:
 - docker
 sudo: required
 script:
-- cd hzero-server/ docker-compose up --exit-code-from
+- cd hzero-server/ && docker-compose up --exit-code-from

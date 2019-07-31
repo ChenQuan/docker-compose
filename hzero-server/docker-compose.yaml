@@ -31,6 +31,8 @@ services:
     container_name: hzero-env 
     hostname: dev.hzero.org
     image: chenquan97/hzero-server
+    privileged: true
+    command: ['/usr/sbin/init']
     ports:
     - "8080:8080"
     - "80:80"

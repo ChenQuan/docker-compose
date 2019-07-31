@@ -114,7 +114,7 @@ git clone https://xxxx/demo-register.git
 
 4. 修改 run.sh，将`JAR`设置为服务名，`MPORT`设置为配置文件中 `management.port` 的端口。该脚本会拉取最新代码、打包、停止原服务、启动新服务。
 
-   ![img](http://hzerodoc.saas.hand-china.com/img/docs/installation-configuration/install/1546075203.jpg)
+   ![img](/img/run-shell.jpg)
 
    设置 run.sh 可执行：`# chmod +x run.sh`
 

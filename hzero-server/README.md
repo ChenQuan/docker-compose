@@ -11,11 +11,11 @@
 | Redis | 缓存数据库   | 4.0.2                        |
 | Mysql | 数据库       | 5.7.17                       |
 
-| 域名            | 容器/服务 |      |
-| --------------- | --------- | ---- |
-| db.hzero.org    | mysql     |      |
-| redis.hzero.org | redis     |      |
-| dev.hzero.org   | centos    |      |
+| 域名            | 容器/服务 |
+| --------------- | --------- |
+| db.hzero.org    | mysql     |
+| redis.hzero.org | redis     |
+| dev.hzero.org   | centos    |
 
 对外开放
 

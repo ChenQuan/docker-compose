@@ -8,9 +8,11 @@ os:
 
 services:
 - docker
+before_install:
+- sudo service mysql-5.6 stop || sudo service mysql stop
 sudo: required
 script:
-- cd hzero-server/ && docker-compose -f docker-compose.yaml config
+- cd hzero-server/ && docker-compose -f docker-compose.yaml config 
 - docker-compose -f docker-compose.yaml down
 - docker-compose -f docker-compose.yaml up -d --force-recreate 
 - docker-compose -f docker-compose.yaml down

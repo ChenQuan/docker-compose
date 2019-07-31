@@ -73,7 +73,7 @@ docker exec  -it  hzero-env /bin/bash
 
 测试容器网络连通性
 
-```
+```shell
  ping db.hzero.org # mysql数据库
  ping redis.hzero.org # redis数据库
 ```

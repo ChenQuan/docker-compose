@@ -21,7 +21,7 @@
 
 http://hzerodoc.saas.hand-china.com/zh/docs/installation-configuration/service-install/local-install/
 
-## 使用
+## 安装
 
 ### 一、安装Docker和Docker-compose
 
@@ -81,3 +81,41 @@ docker exec  -it  hzero-env /bin/bash
  ping dev.hzero.org # centos服务器
 ```
 
+## 部署
+
+1. 运行容器
+
+```shell
+docker-compose -f docker-compose.yaml up -d --force-recreate
+```
+
+2. 传输源码到容器（centos）
+
+方法一：从本机复制文件到容器中
+
+```shell
+docker cp /home/zero/docker-compose/hzeroserver-register hzero-env:/home/hzeroserver-register # hzero-env：为容器名称
+```
+
+> /home/zero/docker-compose/hzeroserver-register: 本地路径,即原始路径
+>
+> /home/hzeroserver-register:容器（centos)路径,即目标路径
+
+方法二：从Git仓库获取源码
+
+以SSH或Https方式拉取项目源码：
+
+```shell
+git clone git@xxxx/demo-register.git 
+git clone https://xxxx/demo-register.git
+```
+
+3. 下载 [run.sh](http://hzerodoc.saas.hand-china.com/files/docs/installation-configuration/install/run.sh) 脚本放到 hzero-register 根目录下
+
+4. 修改 run.sh，将`JAR`设置为服务名，`MPORT`设置为配置文件中 `management.port` 的端口。该脚本会拉取最新代码、打包、停止原服务、启动新服务。
+
+   ![img](http://hzerodoc.saas.hand-china.com/img/docs/installation-configuration/install/1546075203.jpg)
+
+   设置 run.sh 可执行：`# chmod +x run.sh`
+
+5. 运行脚本`./run.sh`,完成手动部署

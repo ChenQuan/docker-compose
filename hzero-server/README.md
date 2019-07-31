@@ -17,6 +17,8 @@
 | redis.hzero.org | redis     |      |
 | dev.hzero.org   | centos    |      |
 
+对外开放
+
 http://hzerodoc.saas.hand-china.com/zh/docs/installation-configuration/service-install/local-install/
 
 ## 使用
@@ -76,5 +78,6 @@ docker exec  -it  hzero-env /bin/bash
 ```shell
  ping db.hzero.org # mysql数据库
  ping redis.hzero.org # redis数据库
+ ping dev.hzero.org # centos服务器
 ```
 
